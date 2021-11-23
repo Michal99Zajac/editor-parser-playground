@@ -40,9 +40,9 @@ export function RawText(): JSX.Element {
       <Textarea
         sx={{
           '&': {
-            '-moz-tab-size': '4',
-            '-o-tab-size': '4',
-            'tab-size': '4',
+            MozTabSize: 2,
+            OTabSize: 2,
+            tabSize: 2,
           },
         }}
         value={rawText}

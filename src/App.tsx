@@ -1,14 +1,18 @@
 import ThemeProvider from '@workcode/components'
 
-import { Bar, RawText } from './components'
+import { Bar, RawText, Layout } from './components'
 import { LanguageProvider } from './context'
 
 function App(): JSX.Element {
   return (
     <LanguageProvider>
       <ThemeProvider>
-        <Bar />
-        <RawText />
+        <Layout
+          header={<Bar />}
+          editor={<RawText />}
+          prettyCode={<div></div>}
+          htmlCode={<div></div>}
+        />
       </ThemeProvider>
     </LanguageProvider>
   )
