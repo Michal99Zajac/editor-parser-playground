@@ -3067,7 +3067,7 @@
 
 "@workcode/components@git+https://github.com/Michal99Zajac/components-workcode.git":
   version "1.0.0"
-  resolved "git+https://github.com/Michal99Zajac/components-workcode.git#6227942be598dec45f7aaacc39d17ac9083f367c"
+  resolved "git+https://github.com/Michal99Zajac/components-workcode.git#6a79bc90ee6729c7666f6d972170cae7ea9c2acc"
   dependencies:
     "@chakra-ui/icons" "^1.1.1"
     "@chakra-ui/react" "^1.6.12"

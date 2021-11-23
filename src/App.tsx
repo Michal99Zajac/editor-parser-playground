@@ -1,6 +1,6 @@
 import ThemeProvider from '@workcode/components'
 
-import { Bar } from './components'
+import { Bar, RawText } from './components'
 import { LanguageProvider } from './context'
 
 function App(): JSX.Element {
@@ -8,6 +8,7 @@ function App(): JSX.Element {
     <LanguageProvider>
       <ThemeProvider>
         <Bar />
+        <RawText />
       </ThemeProvider>
     </LanguageProvider>
   )
