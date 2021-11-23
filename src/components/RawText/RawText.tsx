@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { Box, Heading, Textarea } from '@workcode/components'
 
+import useCode from '../../hooks/useCode'
+
 export function RawText(): JSX.Element {
-  const [rawText, setRawText] = useState('')
+  const { code, setCode } = useCode()
   const [spacing, setSpacing] = useState(0)
 
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setRawText(event.target.value)
+    setCode(event.target.value)
   }
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -15,16 +17,16 @@ export function RawText(): JSX.Element {
     }
 
     if (event.key === 'Tab') {
-      setRawText(rawText + '\t')
+      setCode(code + '\t')
       setSpacing(spacing + 1)
     }
 
     if (event.key === 'Enter') {
-      setRawText(rawText + '\n' + '\t'.repeat(spacing))
+      setCode(code + '\n' + '\t'.repeat(spacing))
     }
 
     if (event.key === 'Backspace') {
-      if (rawText.endsWith('\t') && spacing) {
+      if (code.endsWith('\t') && spacing) {
         setSpacing(spacing - 1)
       }
     }
@@ -45,7 +47,7 @@ export function RawText(): JSX.Element {
             tabSize: 2,
           },
         }}
-        value={rawText}
+        value={code}
         onKeyDown={onKeyDown}
         onChange={onChange}
         borderRadius="0"

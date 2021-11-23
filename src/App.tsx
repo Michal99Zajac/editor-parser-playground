@@ -6,16 +6,16 @@ import { LanguageProvider, CodeProvider } from './context'
 function App(): JSX.Element {
   return (
     <LanguageProvider>
-      <ThemeProvider>
-        <CodeProvider>
+      <CodeProvider>
+        <ThemeProvider>
           <Layout
             header={<Bar />}
             editor={<RawText />}
             prettyCode={<div></div>}
             htmlCode={<div></div>}
           />
-        </CodeProvider>
-      </ThemeProvider>
+        </ThemeProvider>
+      </CodeProvider>
     </LanguageProvider>
   )
 }
