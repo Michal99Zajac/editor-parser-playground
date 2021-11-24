@@ -22,8 +22,8 @@ export function Layout(props: LayoutProps): JSX.Element {
       <GridItem rowSpan={2} padding={2}>
         {editor}
       </GridItem>
-      <GridItem padding={2}>{prettyCode}</GridItem>
       <GridItem padding={2}>{htmlCode}</GridItem>
+      <GridItem padding={2}>{prettyCode}</GridItem>
     </Grid>
   )
 }
