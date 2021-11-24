@@ -3,7 +3,7 @@ import { Box, Heading, Textarea } from '@workcode/components'
 
 import useCode from '../../hooks/useCode'
 
-export function RawText(): JSX.Element {
+export function Editor(): JSX.Element {
   const { code, setCode } = useCode()
   const [spacing, setSpacing] = useState(0)
 
@@ -36,7 +36,7 @@ export function RawText(): JSX.Element {
     <Box height="100%">
       <Box padding={2} bg="#091A2A" height="auto">
         <Heading as="h4" size="md">
-          Raw Code
+          Edit
         </Heading>
       </Box>
       <Textarea
@@ -59,4 +59,4 @@ export function RawText(): JSX.Element {
   )
 }
 
-export default RawText
+export default Editor

@@ -16,7 +16,7 @@ export interface CodeProviderType {
   children: React.ReactNode
 }
 
-export const CodeProvider = ({ children }: CodeProviderType) => {
+export const CodeProvider = ({ children }: CodeProviderType): JSX.Element => {
   const [code, setCode] = useState('')
 
   return (

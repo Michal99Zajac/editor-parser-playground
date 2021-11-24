@@ -1,3 +1,3 @@
 export * from './Bar'
-export * from './RawText'
+export * from './Editor'
 export * from './Layout'

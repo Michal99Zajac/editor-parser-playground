@@ -1,6 +1,6 @@
 import ThemeProvider from '@workcode/components'
 
-import { Bar, RawText, Layout } from './components'
+import { Bar, Editor, Layout } from './components'
 import { LanguageProvider, CodeProvider } from './context'
 
 function App(): JSX.Element {
@@ -10,7 +10,7 @@ function App(): JSX.Element {
         <ThemeProvider>
           <Layout
             header={<Bar />}
-            editor={<RawText />}
+            editor={<Editor />}
             prettyCode={<div></div>}
             htmlCode={<div></div>}
           />

@@ -7,7 +7,7 @@ export function Bar(): JSX.Element {
   const { language, setLanguage } = useLanguage()
 
   return (
-    <Flex alignItems="center" padding={1} bg="#091A2A">
+    <Flex alignItems="center" padding={2} bg="#091A2A">
       <Heading
         size="lg"
         fontFamily="Source Code Pro"
@@ -15,7 +15,7 @@ export function Bar(): JSX.Element {
         fontWeight="400"
         color="#FFFFFF"
       >
-        @Workcode playground
+        @Workcode/playground
       </Heading>
       <Spacer />
       <Center width="300px">

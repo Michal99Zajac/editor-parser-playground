@@ -8,7 +8,7 @@ export interface LayoutProps {
   htmlCode: React.ReactNode
 }
 
-export function Layout(props: LayoutProps) {
+export function Layout(props: LayoutProps): JSX.Element {
   const { header, editor, prettyCode, htmlCode } = props
 
   return (
