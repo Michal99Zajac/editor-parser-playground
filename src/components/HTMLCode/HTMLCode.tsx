@@ -1,10 +1,13 @@
 import React from 'react'
 import { Box, Heading, Text } from '@workcode/components'
+import { toHTML } from '@workcode/editor-parser'
 
 import useCode from '../../hooks/useCode'
+import { useLanguage } from '../../hooks'
 
 export function HTMLCode(): JSX.Element {
   const { code } = useCode()
+  const { language } = useLanguage() as any
 
   return (
     <Box height="100%">
@@ -21,16 +24,9 @@ export function HTMLCode(): JSX.Element {
         overflow="scroll"
         padding={2}
       >
-        {code.split('\n').map((line, index) => (
-          <Text
-            as="pre"
-            key={`${line}-${index}`}
-            sx={{ wordWrap: 'normal', tabSize: 2 }}
-            fontSize="sm"
-          >
-            {line ? line : '\n'}
-          </Text>
-        ))}
+        <Text as="pre" sx={{ wordWrap: 'normal', tabSize: 2 }} fontSize="sm">
+          {toHTML(code, language)}
+        </Text>
       </Box>
     </Box>
   )
