@@ -1,34 +1,29 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import { Box, Heading, Textarea } from '@workcode/components'
 
 import useCode from '../../hooks/useCode'
 
 export function Editor(): JSX.Element {
   const { code, setCode } = useCode()
-  const [spacing, setSpacing] = useState(0)
+  const ref = useRef() as React.MutableRefObject<HTMLTextAreaElement>
 
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCode(event.target.value)
   }
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (['Tab', 'Enter'].includes(event.key)) {
-      event.preventDefault()
-    }
-
     if (event.key === 'Tab') {
-      setCode(code + '\t')
-      setSpacing(spacing + 1)
-    }
+      event.preventDefault()
+      const { selectionStart, selectionEnd } = event.currentTarget
 
-    if (event.key === 'Enter') {
-      setCode(code + '\n' + '\t'.repeat(spacing))
-    }
+      const newCode =
+        code.substring(0, selectionStart) + '\t' + code.substring(selectionEnd)
 
-    if (event.key === 'Backspace') {
-      if (code.endsWith('\t') && spacing) {
-        setSpacing(spacing - 1)
-      }
+      setCode(newCode)
+
+      ref.current.value = newCode
+      ref.current.selectionStart = selectionStart + 1
+      ref.current.selectionEnd = selectionStart + 1
     }
   }
 
@@ -47,6 +42,7 @@ export function Editor(): JSX.Element {
             tabSize: 2,
           },
         }}
+        ref={ref}
         value={code}
         onKeyDown={onKeyDown}
         onChange={onChange}
